@@ -1,4 +1,5 @@
 {
     "Name": "Single-pulse open-loop TMS-EEG dataset",
-    "BIDSVersion": "1.3.0"
+    "BIDSVersion": "1.3.0",
+    "License": "CC0"
 }
