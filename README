@@ -1,0 +1,31 @@
+Raw data are divided into three parts:
+
+1. EEG data, structured according to BIDS format and available in sub-* folders
+	a. rest - resting quietly, eyes open, no TMS
+	b. tmseeg1 - resting quietly, eyes open, single-pulse TMS to right motor cortex at 120% of resting motor threshold.
+	c. tmseeg2 - same as tmseeg1, but only present in subjects 728, 766, and 780. For these subjects, tmseeg1 and tmseeg2 should be combined, with tmseeg1 first. 
+
+2. Neuronavigation data, available in sourcedata/neuronavigation 
+	a. coil location errors relative to left FDI hotspot during TMS delivery - *_CoilLoc_clean.xlsx file 
+		i. column 1: distance to target (units=mm)
+		ii. column 2:  target error (units=mm)
+		iii. column 3: angular error (units=mm)
+		iV. column 4: twist error (units=mm)
+	b. series of points reflecting head shape in neuronavigation subject-tracker coordinates - *_HeadShape.txt file
+	c. position of each EEG electrode in nifti coordinates  - *_ElecPos.txt file	
+
+3. EMG data, available in sourcedata/emg 
+	a. EMG data - *_000.mat, *_001.mat, *_002.mat, *_003.mat, *_004.mat, *_005.mat files
+		i. Chans.Data = EMG data (trials [rows] x samples [columns] x muscle [sheets; sheet1=FDI, sheet2=ADM]) 
+		iii. *_000.mat = trials 1-100 
+		     *_001.mat = trials 101-200 
+		     *_002.mat = trials 201-300 
+ 		     *_003.mat = trials 301-400 
+		     *_004.mat = trials 401-500 
+		     *_005.mat = trials 501-600
+
+#######################################
+NOTE: to ensure proper matching of EMG and EEG data, the following subjects should have certain trials removed from EEG data only.
+1. Subject 767: trials 1 and 2
+2. Subject 774: all trials after 556
+3. Subject 780: trials 401, 402, 403, 404, 405
